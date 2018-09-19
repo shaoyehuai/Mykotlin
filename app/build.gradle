@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.jsh.luo.mykotlin"
-        minSdkVersion 27
+        minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -27,8 +28,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:design:27.1.1'
+    //底部菜单栏
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }
+
 repositories {
     mavenCentral()
 }
