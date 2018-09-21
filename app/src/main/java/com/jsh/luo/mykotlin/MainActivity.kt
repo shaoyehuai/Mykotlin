@@ -64,6 +64,10 @@ class MainActivity : AppCompatActivity(){
                 transaction.add(R.id.fl_content, it, "home")
             }
         }
+
+        mIndex = index
+        tab_layout.currentTab = mIndex
+        transaction.commitAllowingStateLoss()
     }
 
     /**

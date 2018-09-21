@@ -17,6 +17,8 @@
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
+        android:layout_below="@+id/apl_title"
+        android:layout_above="@+id/tab_layout"
         android:id="@+id/fl_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
@@ -25,6 +27,7 @@
         android:id="@+id/tab_layout"
         app:tl_divider_color="#000000"
         app:tl_indicator_height="0dp"
+        android:background="@color/colorAccent"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
