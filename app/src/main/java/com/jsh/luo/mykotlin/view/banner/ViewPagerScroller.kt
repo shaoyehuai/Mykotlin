@@ -1,4 +1,4 @@
-package com.jsh.luo.mykotlin.banner
+package com.jsh.luo.mykotlin.view.banner
 
 import android.content.Context
 import android.view.animation.Interpolator
@@ -12,8 +12,8 @@ import android.widget.Scroller
  */
 class ViewPagerScroller(context: Context?, interpolator: Interpolator?, flywheel: Boolean) : Scroller(context, interpolator, flywheel) {
 
-    var mDuration = 800// ViewPager默认的最大Duration为600,我们默认稍微大一点。值越大越慢。
-    var mIsUseDefaultDuration = false
+    private var mDuration = 800// ViewPager默认的最大Duration为600,我们默认稍微大一点。值越大越慢。
+    private var mIsUseDefaultDuration = false
 
     constructor(context: Context?) : this(context,null)
 
@@ -25,5 +25,15 @@ class ViewPagerScroller(context: Context?, interpolator: Interpolator?, flywheel
 
     override fun startScroll(startX: Int, startY: Int, dx: Int, dy: Int, duration: Int) {
         super.startScroll(startX, startY, dx, dy, if (mIsUseDefaultDuration) duration else mDuration)
+    }
+
+    fun setDuration(duration: Int){
+        mDuration = duration
+    }
+
+    fun getScrollDuration() = mDuration
+
+    fun setUseDefaultDuration(isUseDefaultDuration : Boolean){
+        mIsUseDefaultDuration = isUseDefaultDuration
     }
 }

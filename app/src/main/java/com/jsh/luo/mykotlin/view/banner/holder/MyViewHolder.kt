@@ -1,4 +1,4 @@
-package com.jsh.luo.mykotlin.banner.holder
+package com.jsh.luo.mykotlin.view.banner.holder
 
 import android.content.Context
 import android.view.View

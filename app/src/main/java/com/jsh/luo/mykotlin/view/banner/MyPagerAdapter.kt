@@ -1,11 +1,11 @@
-package com.jsh.luo.mykotlin.banner
+package com.jsh.luo.mykotlin.view.banner
 
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.View
 import android.view.ViewGroup
-import com.jsh.luo.mykotlin.banner.holder.MyHolderCreate
-import com.jsh.luo.mykotlin.banner.holder.MyViewHolder
+import com.jsh.luo.mykotlin.view.banner.holder.MyHolderCreate
+import com.jsh.luo.mykotlin.view.banner.holder.MyViewHolder
 import java.lang.RuntimeException
 
 class MyPagerAdapter<T>(data : List<T>,myHolderCreate: MyHolderCreate<*>,canLoop : Boolean) : PagerAdapter(){
@@ -82,5 +82,9 @@ class MyPagerAdapter<T>(data : List<T>,myHolderCreate: MyHolderCreate<*>,canLoop
             }
         }
         return view
+    }
+
+    fun setPageClickListener(pageClickListener: BannerPageClickListener?) {
+        mPageClickListener = pageClickListener
     }
 }

@@ -1,4 +1,4 @@
-package com.jsh.luo.mykotlin.banner
+package com.jsh.luo.mykotlin.view.banner
 
 enum class IndicatorAlign{
 

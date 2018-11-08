@@ -1,4 +1,4 @@
-package com.jsh.luo.mykotlin.banner
+package com.jsh.luo.mykotlin.view.banner
 
 import android.content.Context
 import android.support.v4.view.ViewPager
