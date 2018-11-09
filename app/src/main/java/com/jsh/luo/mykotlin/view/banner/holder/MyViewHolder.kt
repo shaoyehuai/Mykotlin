@@ -4,9 +4,6 @@ import android.content.Context
 import android.view.View
 
 interface MyViewHolder<T>{
-
-    fun onCreateViewHolder() : MyViewHolder<T>
-
     /**
      * 创建View
      * @param context

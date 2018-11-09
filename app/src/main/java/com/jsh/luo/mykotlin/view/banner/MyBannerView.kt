@@ -13,12 +13,12 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.jsh.luo.mykotlin.R
 import com.jsh.luo.mykotlin.Utils
-import com.jsh.luo.mykotlin.view.banner.holder.MyHolderCreate
 import kotlinx.android.synthetic.main.mz_banner_effect_layout.view.*
 import java.lang.IllegalArgumentException
 import java.lang.reflect.Field
 import android.support.annotation.DrawableRes
 import android.widget.LinearLayout
+import com.jsh.luo.mykotlin.view.banner.holder.MyViewHolder
 import com.jsh.luo.mykotlin.view.banner.transformer.CoverModeTransformer
 import com.jsh.luo.mykotlin.view.banner.transformer.ScaleYTransformer
 
@@ -309,10 +309,10 @@ class MyBannerView<T> : RelativeLayout{
      * 设置数据，这是最重要的一个方法。
      * <p>其他的配置应该在这个方法之前调用</p>
      * @param data Banner 展示的数据集合
-     * @param myHolderCreate  ViewHolder生成器 {@link MZHolderCreator} And {@link MZViewHolder}
+     * @param myHolder  ViewHolder生成器 {@link MZHolderCreator} And {@link MZViewHolder}
      */
-    fun setPages(data: List<T>?, myHolderCreate : MyHolderCreate<*>?){
-        if(data == null || myHolderCreate == null){
+    fun setPages(data: List<T>?, myHolder : MyViewHolder<T>?){
+        if(data == null || myHolder == null){
             return
         }
 
@@ -336,7 +336,7 @@ class MyBannerView<T> : RelativeLayout{
         //初始化Indicator
         initIndicator()
 
-        mAdapter = MyPagerAdapter(data,myHolderCreate,mIsCanLoop)
+        mAdapter = MyPagerAdapter(data,myHolder,mIsCanLoop)
         mAdapter!!.setupViewPager(view_pager)
         mAdapter!!.setPageClickListener(mBannerPageClickListener)
 

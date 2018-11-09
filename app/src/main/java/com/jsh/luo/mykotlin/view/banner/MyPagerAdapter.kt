@@ -4,23 +4,22 @@ import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.View
 import android.view.ViewGroup
-import com.jsh.luo.mykotlin.view.banner.holder.MyHolderCreate
 import com.jsh.luo.mykotlin.view.banner.holder.MyViewHolder
 import java.lang.RuntimeException
 
-class MyPagerAdapter<T>(data : List<T>,myHolderCreate: MyHolderCreate<*>,canLoop : Boolean) : PagerAdapter(){
+class MyPagerAdapter<T>(data : List<T>, myHolder: MyViewHolder<T>, canLoop : Boolean) : PagerAdapter(){
 
-    var mPageClickListener : BannerPageClickListener? = null
+    private var mPageClickListener : BannerPageClickListener? = null
 
     private var mViewPager : ViewPager? = null
     private var mData : MutableList<T>? = null
     private var canLoop : Boolean = false
     private val mLooperCountFactor = 500
-    private var myHolderCreate : MyHolderCreate<*>? = null
+    private var myHolder : MyViewHolder<T>? = null
 
     init {
         this.canLoop = canLoop
-        this.myHolderCreate = myHolderCreate
+        this.myHolder = myHolder
         if(mData == null) mData = ArrayList()
 
         mData?.addAll(data)
@@ -70,7 +69,7 @@ class MyPagerAdapter<T>(data : List<T>,myHolderCreate: MyHolderCreate<*>,canLoop
 
     private fun getView(position : Int ,container: ViewGroup) : View{
         val realPosition : Int = position % getRealCount()
-        val holder : MyViewHolder<T> = myHolderCreate?.createViewHolder() as MyViewHolder<T>? ?: throw RuntimeException("can not return a null holder")
+        val holder : MyViewHolder<T> = myHolder ?: throw RuntimeException("can not return a null holder")
 
         val view :View =holder.createView(container.context)
         if(mData != null && mData!!.size > 0) {
