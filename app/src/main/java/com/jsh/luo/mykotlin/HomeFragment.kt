@@ -2,22 +2,19 @@ package com.jsh.luo.mykotlin
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.jsh.luo.mykotlin.view.banner.holder.MyViewHolder
 import android.support.v4.view.ViewPager
 import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
+import com.jsh.luo.mykotlin.base.BaseFragment
 import com.jsh.luo.mykotlin.view.banner.BannerPageClickListener
 import com.jsh.luo.mykotlin.view.banner.MyBannerView
 import kotlinx.android.synthetic.main.fragment_home.*
 
-
-class HomeFragment : Fragment(){
+class HomeFragment : BaseFragment(){
 
     private var mTitle : String? = null
     val TAG = "HomeFragment"
@@ -34,14 +31,10 @@ class HomeFragment : Fragment(){
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view : View = inflater.inflate(R.layout.fragment_home,container,false)
-        initView(view)
-        return view
-    }
+    override fun getCreateViewLayoutId(): Int = R.layout.fragment_home
 
-    private fun initView(view: View) {
-        mBanner = view.findViewById(R.id.banner)
+    override fun initView(rootView : View?) {
+        mBanner = rootView?.findViewById(R.id.banner)
 
         mBanner?.setBannerPageClickListener(object : BannerPageClickListener {
             override fun onPageClick(view: View, position: Int) {
